@@ -1,0 +1,100 @@
+.o-form {
+  position: relative;
+  $root: &;
+
+  @media (min-width: 768px) {
+    @include flex();
+  }
+
+  &--default {
+    #{$root}__label {
+      margin: 0 0.5rem 0.5rem 0;
+    }
+
+    #{$root}__input {
+      margin-bottom: 15px;
+    }
+  }
+
+  &--grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    grid-gap: 1rem;
+  }
+
+  &__label {
+    display: inline-block;
+  }
+
+  &__input {
+    background-color: rgba(18, 144, 164, 0.07);
+    border: none;
+    border-radius: $global-radius;
+    box-shadow: $global-shadow;
+    font-family: $font;
+    font-size: 1rem;
+    padding: 1rem;
+    transition: $global-transition;
+
+    &:hover {
+      border-color: $primary-color;
+      box-shadow: $global-shadow-hover;
+    }
+
+    &:focus {
+      box-shadow: $global-shadow-hover;
+      outline-color: $primary-color;
+    }
+
+    &--block {
+      display: block;
+      margin-bottom: 0.75rem;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        flex: 1 0 65%;
+        margin-right: 0.5rem;
+        margin-bottom: 0;
+      }
+    }
+
+    &--search {
+      border: none;
+      padding: 20px;
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:focus {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__magnify {
+    border: none;
+    cursor: pointer;
+    width: 62px;
+    height: 62px;
+    text-indent: -150px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  > .button {
+    grid-column: 2;
+    margin-top: 1rem;
+  }
+
+  &__user {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    grid-gap: 1rem;
+    grid-column: 1 / 3;
+  }
+}
